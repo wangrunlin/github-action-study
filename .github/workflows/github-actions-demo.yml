@@ -22,5 +22,6 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           script: |
+            lsof -ti:8089 && kill -9 `lsof -ti:8089` || echo "port 8089 is not running!"
             whoami
             ls -al
